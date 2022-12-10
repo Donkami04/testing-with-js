@@ -1,32 +1,29 @@
 name: API CI
-# esto dice que cada vez que se haga un cambio en las carpetas se corra el ciclo
-# Start: Todo esto se hace cuando tienes varios repos en uno solo
+
+#on: [push]
 on:
   push:
     paths:
       - "./api/**"
       - ".github/workflows/api-ci.yml"
-#directorios por defecto en donde correran las pruebas
+
+
 defaults:
   run:
     working-directory: ./api
-# end
 
-#aqui le diremos a github que corra las pruebas en una maquina remota
 jobs:
-  #aqui le decimos las configuraciones y requisitos que necesita la maquina
   unit-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2 #commando de github actions
+        uses: actions/checkout@v2
       - name: Setup Nodejs
         uses: actions/setup-node@v2
         with:
           node-version: 14
           cache: 'npm'
-          cache-dependecy-path: ./api/package-lock.json
-          #instalamos dependencias
+          cache-dependency-path: ./api/package-lock.json
       - name: install
         shell: bash
         run: npm ci
