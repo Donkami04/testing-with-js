@@ -33,4 +33,7 @@ jobs:
       - name: run unit test
         shell: bash
         run: npm run test
+      - name: run static tests
+        shell: bash
+        run: npm run lint
 
