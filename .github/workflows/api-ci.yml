@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: npm run test
 
-linter:
+  linter:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
