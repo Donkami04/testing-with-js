@@ -1,1 +1,2 @@
-# simple-api-CI
+# testing-with-js
+Just practicing about testing - Jest
