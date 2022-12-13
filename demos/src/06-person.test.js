@@ -2,19 +2,23 @@ const Person = require('./06-person');
 
 describe('Test for Person', () => {
   let person;
+  // Arrange
   beforeEach(() => {
-    person = new Person('Camilo', 72, 1.75);
+    person = new Person('Nicolas', 45, 1.7);
   });
 
-  test('Should return down', () => {
+  test('should return down', () => {
+    // Arrange
     person.weight = 45;
+    // Act
     const imc = person.calcIMC();
+    // Assert
     expect(imc).toBe('down');
   });
 
-  test('Should return alto', () => {
-    person.weight = 96;
+  test('should return normal', () => {
+    person.weight = 59;
     const imc = person.calcIMC();
-    expect(imc).toBe('overweight level 2');
+    expect(imc).toBe('normal');
   });
 });

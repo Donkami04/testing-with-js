@@ -1,7 +1,31 @@
 // matchers
-const data = { name: 'cami' };
-data.lastname = 'munera';
-
 test('test obj', () => {
-  expect(data).toEqual({ name: 'cami', lastname: 'munera' });
+  const data = { name: 'nico' };
+  data.lastname = 'molina';
+  expect(data).toEqual({ name: 'nico', lastname: 'molina' });
+});
+
+test('null', () => {
+  const data = null;
+  expect(data).toBeNull();
+  expect(data).toBeDefined();
+  expect(data).not.toBeUndefined();
+});
+
+test('booleans', () => {
+  expect(true).toEqual(true);
+  expect(false).toEqual(false);
+
+  expect(0).toBeFalsy();
+  expect('').toBeFalsy();
+  expect(false).toBeFalsy();
+});
+
+test('string', () => {
+  expect('Christoph').toMatch(/stop/);
+});
+
+test('list / arrays', () => {
+  const numbers = [1, 2, 3, 4];
+  expect(numbers).toContain(3);
 });
